@@ -26,5 +26,8 @@ const on404 = (data) => {
 }
 
 Flxy.router.handle(on404);
-
 Flxy.events.addListener('.drawer__nav', 'click', () => document.querySelector('.drawer').classList.toggle('drawer--fullscreen'));
+
+document.addEventListener("click",function(event){
+    document.querySelector(".modal__content").style.display = "none";
+})

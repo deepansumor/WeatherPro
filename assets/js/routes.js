@@ -16,7 +16,7 @@ async function fetchWeatherData(cached) {
 
         try {
             console.log(`location Date Started`, new Date())
-            _location = (await  Flxy.location.get());
+            _location = (await Flxy.location.get());
             //  We will use as Flxy.location.getLatLongFromNavigator 
         } catch (error) {
             console.log(error)
@@ -26,7 +26,7 @@ async function fetchWeatherData(cached) {
 
         let latitude = _location.latitude;
         let longitude = _location.longitude
-        
+
         const response = await Flxy.api.get("/forecast", {
             query: {
                 lat: latitude,
@@ -102,6 +102,11 @@ Router.register("/home", async function (request) {
         // Update the drawer with the active date
         updateDrawer(document.querySelector(".capsule--active"));
 
+        let attributionSeen = localStorage.getItem("a");
+        if (!attributionSeen) {
+            document.querySelector(".modal__content").style.display = "block"
+            localStorage.setItem("a", Date.now())
+        }
     } catch (error) {
         console.error("Error processing /home route:", error);
     }
