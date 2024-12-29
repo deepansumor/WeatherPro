@@ -27,7 +27,8 @@ Router.register("/home", async function (request) {
         const grouppedData = groupWeatherByDate(request.list);
         request.list = Object.values(grouppedData);
 
-        request.list = request.list.map((listItems) => {
+        request.query.dt = request.weather.dt;
+        request.list =  request.list.map((listItems) => {
             return listItems.map(item => {
                 let isActive = item.dt == request.query.dt ? "capsule--active" : "";
                 return {

@@ -14,6 +14,8 @@ Flxy.api.configure({
 //     footer: "/footer"
 // });
 
-Flxy.router.handle();
+const on404 = () => Flxy.router.navigate("/home")
+
+Flxy.router.handle(on404);
 
 Flxy.events.addListener('.drawer__swipeup', 'click', () => document.querySelector('.drawer').classList.toggle('drawer--fullscreen'));
