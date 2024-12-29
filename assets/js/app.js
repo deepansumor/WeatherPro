@@ -28,6 +28,10 @@ const on404 = (data) => {
 Flxy.router.handle(on404);
 Flxy.events.addListener('.drawer__nav', 'click', () => document.querySelector('.drawer').classList.toggle('drawer--fullscreen'));
 
-document.addEventListener("click",function(event){
+const hideModal = () => {
     document.querySelector(".modal__content").style.display = "none";
-})
+};
+
+["click", "touch", "scroll"].forEach(event => {
+    document.addEventListener(event, hideModal);
+});
