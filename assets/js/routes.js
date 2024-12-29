@@ -15,11 +15,14 @@ async function fetchWeatherData(cached) {
         let _location;
 
         try {
-            _location = (await Flxy.location.getLatLongFromNavigator());
+            console.log(`location Date Started`, new Date())
+            _location = (await  Flxy.location.get());
+            //  We will use as Flxy.location.getLatLongFromNavigator 
         } catch (error) {
             console.log(error)
             _location = (await Flxy.location.get());
         }
+        console.log(`location Date Ended`, new Date())
 
         let latitude = _location.latitude;
         let longitude = _location.longitude
