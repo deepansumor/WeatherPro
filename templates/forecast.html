@@ -1,0 +1,137 @@
+<section class="drawer">
+    <div class="weather__content">
+        <h1 class="weather__location">{{weather.location.city}}</h1>
+        <div class="weather__details">
+            <p class="weather__time" aria-label="Current Time"><span aria-label="{{weather.metadata.timestamp}}">{{weather.metadata.timestamp}}</p>
+        </div>
+    </div>
+    <div class="panels">
+        <div class="panel">
+            <div class="panel__temprature">
+                {{weather.temperature.feelsLike}}
+            </div>
+            <div class="weather__details">
+                <p class="weather__status">{{weather.weather.description}}</p>
+                <div class="weather__forecast">
+                    <span>H: <span class="weather__degree">{{weather.temperature.maximum}}</span></span>
+                    <span>L: <span class="weather__degree">{{weather.temperature.minimum}}</span></span>
+                </div>
+            </div>
+            <img class="panel__status s-{{weather.weather.id}}" src="{{weather.weather.icon}}" alt="">
+        </div>
+    </div>
+    <nav class="drawer__nav">
+        <div class="drawer__swipeup"><span></span></div>
+        <ul class="drawer__list">
+            <li class="drawer__item drawer__item--active">Hourly Forecast</li>
+            <li class="drawer__item">Weekly Forecast</li>
+        </ul>
+    </nav>
+    <div class="drawer__content">
+        <div class="capsules">
+            <div class="capsule">
+                <span class="capsule__time">12 AM</span>
+                <img class="capsule__icon" src="{{weather.weather.icon}}"
+                    alt="Cloudy with wind">
+                <span class="capsule__temp">19°</span>
+            </div>
+
+           
+
+        </div>
+        <div class="widgets">
+
+            <div class="widget widget__sunrise">
+                <div class="widget__label">
+                    <img class="widget__icon" src="../assets/images/sunrise.svg" alt="">
+                    <span>Sunrise</span>
+                </div>
+                <div class="widget__content">
+                    <div class="half-circle">
+                        <div class="circle-border-item">
+                            <img src="../assets/images/{{weather.part}}.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="widget__sunrise__duration">
+                        <span>{{weather.rise}} </span>
+                        <span>{{weather.set}} </span>
+                    </div>
+                </div>
+
+            </div>
+
+           
+
+            <div class="widget widget__humidity">
+                <div class="widget__label">
+                    <img class="widget__icon" src="../assets/images/humidity.svg" alt="">
+                    <span>Humidity</span>
+                </div>
+                <div class="widget__content">
+                    {{weather.humidity}}
+                </div>
+            </div>
+
+            <div class="widget widget__pressure">
+                <div class="widget__label">
+                    <img class="widget__icon" src="../assets/images/pressure.svg" alt="">
+                    <span>Pressure</span>
+                </div>
+                <div class="widget__content">
+                    {{weather.pressure}}
+                </div>
+
+            </div>
+
+            
+
+
+            <div class="widget widget__visibility">
+                <div class="widget__label">
+                    <img class="widget__icon" src="../assets/images/visibility.svg" alt="">
+                    <span>Visibility</span>
+                </div>
+                <div class="widget__content">
+                    {{weather.visibility}}
+                </div>
+
+            </div>
+
+            <div class="widget widget__wind">
+                <div class="widget__label">
+                    <img class="widget__icon" src="../assets/images/wind.svg" alt="">
+                    <span>Wind</span>
+                </div>
+                <div class="widget__content">
+                    {{weather.wind.speed}}
+                </div>
+
+            </div>
+
+
+            <div class="widget widget__weather">
+                <div class="widget__label">
+                    <img class="widget__icon" src="../assets/images/weather.svg" alt="">
+                    <span>Weather</span>
+                </div>
+                <div class="widget__content">
+                    {{weather.weather.condition}}
+                </div>
+
+            </div>
+
+            <div class="widget widget__temperature">
+                <div class="widget__label">
+                    <img class="widget__icon" src="../assets/images/temperature.svg" alt="">
+                    <span>Temp.</span>
+                </div>
+                <div class="widget__content">
+                    {{weather.temperature.current}}
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</section>

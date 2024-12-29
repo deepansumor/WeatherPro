@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      position: relative;
+      width: 300px;
+      height: 150px;
+      margin: 100px auto;
+    }
+
+    .semicircle {
+      width: 300px;
+      height: 150px;
+      border: 2px solid #333;
+      border-radius: 150px 150px 0 0;
+      border-bottom: none;
+    }
+
+    .moving-item {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4444;
+      border-radius: 50%;
+      transform-origin: center 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="semicircle"></div>
+    <div class="moving-item"></div>
+  </div>
+
+  <script>
+    const movingItem = document.querySelector('.moving-item');
+    let angle = 0;
+
+    function animate() {
+      // Calculate position on semicircle
+      const radius = 150;
+      const centerX = 150;
+      const centerY = 150;
+      
+      // Convert angle to radians and limit to semicircle (0 to 180 degrees)
+      const radians = (angle % 180) * (Math.PI / 180);
+      
+      // Calculate position
+      const x = centerX + radius * Math.cos(radians);
+      const y = centerY - radius * Math.sin(radians);
+      
+      // Update item position (subtract half of item size for centering)
+      movingItem.style.left = (x - 10) + 'px';
+      movingItem.style.top = (y - 10) + 'px';
+      
+      // Increment angle
+      angle += 1;
+      
+      // Continue animation
+      requestAnimationFrame(animate);
+    }
+
+    // Start animation
+    animate();
+  </script>
+</body>
+</html>
