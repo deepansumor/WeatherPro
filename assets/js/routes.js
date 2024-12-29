@@ -16,7 +16,8 @@ async function fetchWeatherData(cached) {
 
         try {
             console.log(`location Date Started`, new Date())
-            _location = (await Flxy.location.getLatLongFromNavigator());
+            _location = (await  Flxy.location.get());
+            //  We will use as Flxy.location.getLatLongFromNavigator 
         } catch (error) {
             console.log(error)
             _location = (await Flxy.location.get());
