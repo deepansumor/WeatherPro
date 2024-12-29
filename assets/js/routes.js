@@ -12,7 +12,18 @@ async function fetchWeatherData(cached) {
     if (cached.length > 0) return cached;
 
     try {
-        let { latitude, longitude } = await Flxy.location.get()
+        let _location;
+
+        try {
+            _location = (await Flxy.location.getLatLongFromNavigator());
+        } catch (error) {
+            console.log(error)
+            _location = (await Flxy.location.get());
+        }
+
+        let latitude = _location.latitude;
+        let longitude = _location.longitude
+        
         const response = await Flxy.api.get("/forecast", {
             query: {
                 lat: latitude,
@@ -75,7 +86,7 @@ Router.register("/home", async function (request) {
         request.query.dt = request.weather.dt;
         request.list = groupAndActivateWeatherData(request.list, request.query.dt);
         const baseURL = location.origin.startsWith("https") ? location.origin + "/WeatherPro" : location.origin;
-        request.assetURL  = `${baseURL}/assets`
+        request.assetURL = `${baseURL}/assets`
         // Render the template
         await Template.render("/home", request);
 
