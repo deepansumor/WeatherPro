@@ -9,6 +9,7 @@ html {
     /* Hides the scrollbar for Firefox */
     -ms-overflow-style: none;
     /* Hides the scrollbar for Internet Explorer */
+
 }
 
 
@@ -50,6 +51,8 @@ html {
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-family);
+    user-select: none;
+
 }
 
 body {
