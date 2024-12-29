@@ -1,4 +1,9 @@
 import './routes.js';
+
+const baseURL = location.origin.startsWith("https") ? location.origin + "/WeatherPro" : location.origin;
+Flxy.template.setPrefix(`${baseURL}/templates`);
+Flxy.translator.setPrefix(`${baseURL}/translations`);
+
 await Flxy.translator.load('en');
 
 Flxy.api.configure({
