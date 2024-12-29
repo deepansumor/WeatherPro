@@ -74,7 +74,8 @@ Router.register("/home", async function (request) {
         // Group the weather data by date and mark active items
         request.query.dt = request.weather.dt;
         request.list = groupAndActivateWeatherData(request.list, request.query.dt);
-
+        const baseURL = location.origin.startsWith("https") ? location.origin + "/WeatherPro" : location.origin;
+        request.assetURL  = `${baseURL}/assets`
         // Render the template
         await Template.render("/home", request);
 
