@@ -19,7 +19,11 @@ Flxy.api.configure({
 //     footer: "/footer"
 // });
 
-const on404 = () => Flxy.router.navigate("/home")
+const on404 = (data) => {
+    if(data.status == 404){
+        Flxy.router.navigate("/home");
+    }
+}
 
 Flxy.router.handle(on404);
 
