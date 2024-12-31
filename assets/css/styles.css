@@ -346,21 +346,22 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: calc(var(--spacing-unit)*2);
+    gap: calc(var(--spacing-unit)*1.5) calc(var(--spacing-unit));
     text-align: left;
     color: var(--color-white);
+    justify-content: space-around;
 
 }
 
 .widget {
     border: 1px solid rgba(123, 97, 255, 1);
-    height: 170px;
-    border-radius: 30px;
+    height: 100px;
+    border-radius: 10px;
     background: linear-gradient(90deg, #2e335ad4, #2d246cc7);
     backdrop-filter: blur(2px);
-    padding: calc(var(--spacing-unit)*2);
+    padding: calc(var(--spacing-unit));
     color: var(--color-white);
-    width: calc(50% - var(--spacing-unit));
+    width: calc(100%/3 - var(--spacing-unit));
 }
 
 .panel {
@@ -429,40 +430,53 @@ body {
 
 .widget__label {
     color: var(--color-white);
-    font-size: calc(var(--font-size-base));
+    font-size: calc(var(--font-size-base)*0.75);
     text-transform: uppercase;
     line-height: 1;
     font-weight: 100;
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 
 .widget__icon {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     vertical-align: bottom;
 }
 
 .widget__content {
     height: calc(100% - 18px);
-    padding: calc(var(--spacing-unit)* 2);
+    padding: calc(var(--spacing-unit));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
+.widget__sunrise .widget__content{
+    display: block;
+}
+.widget__sunrise .widget__icon {
+    width: 25px;
+    height: 25px;
+    margin-right: var(--spacing-unit);
+}
+.widget__sunrise .widget__label{
+    font-size: var(--font-size-base);
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
 .widget__content img {
     width: 100%;
 }
 
-.widget__humidity .widget__content {
-    font-size: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .panel .weather__details {
     text-align: left;
 }
 
-.widget__pressure .widget__content,
+/* .widget__pressure .widget__content,
 .widget__visibility .widget__content,
 .widget__wind .widget__content,
 .widget__weather .widget__content,
@@ -475,7 +489,7 @@ body {
     line-height: 1.25;
     padding-bottom: 0;
 
-}
+} */
 
 .widget__sunrise {
     width: 100%;
